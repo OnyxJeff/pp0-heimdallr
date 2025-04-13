@@ -1,4 +1,4 @@
-name: Heimdallr Lint Check
+name: ShellCheck Validation
 
 on:
   push:
@@ -7,13 +7,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-  script-check:
+  shellcheck:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: ShellCheck Scripts
-        uses: ludeeus/action-shellcheck
-        with:
-          ignore_paths: .github
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck on scripts/
+        run: |
+          echo "Checking shell scripts in ./scripts"
+          find scripts -name "*.sh" -print -exec shellcheck {} +
