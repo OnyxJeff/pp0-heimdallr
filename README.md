@@ -22,9 +22,9 @@ This will also pings your critical devices every 45 minutes if you schedule this
 
 ```bash
 # Wake-on-LAN        
-    45 * * * * bash /home/potentpi0/power-on-server.sh >> /home/potentpi0/logs/power-on-server.log
+    45 * * * * bash /home/${USER}/power-on-server.sh >> /home/${USER}/logs/power-on-server.log
         # run "power-on-server.sh" every hour at *:45 am/pm
-    30 0 * * 1 /bin/bash -c 'find /home/potentpi0/logs -name "power-on-server.log" -exec sh -c "cp {} /home/potentpi0/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
+    30 0 * * 1 /bin/bash -c 'find /home/${USER}/logs -name "power-on-server.log" -exec sh -c "cp {} /home/${USER}/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
         # saves weekly version of "power-on-server.log" on Monday of every week at 00:30 am then deletes the old log
 ```
 
@@ -44,9 +44,9 @@ To auto update your device, schedule this via cron:
 
 ```bash
 # OS-Auto-Updater
-    5 2 * * 0 bash /home/potentpi0/apt-get-autoupdater.sh >> /home/potentpi0/logs/apt-get-autoupdater.log
+    5 2 * * 0 bash /home/${USER}/apt-get-autoupdater.sh >> /home/${USER}/logs/apt-get-autoupdater.log
         # execute automatic update script and log every sunday at 02:05 am
-    1 0 1 * * /bin/bash -c 'find /home/potentpi0/logs -name "apt-get-autoupdater.log" -exec sh -c "cp {} /home/potentpi0/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
+    1 0 1 * * /bin/bash -c 'find /home/${USER}/logs -name "apt-get-autoupdater.log" -exec sh -c "cp {} /home/${USER}/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
         # saves monthly version of "apt-get-autoupdater.log" on the 1st of every month at 00:01 am then deletes the old log
 ```
 

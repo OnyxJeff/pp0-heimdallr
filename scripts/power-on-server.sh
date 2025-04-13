@@ -2,7 +2,7 @@
 # this runs as a @hourly cron task
 # run
 # crontab -e
-# @hourly bash /home/pi/power-on-server.sh > power-on-server.log
+# @hourly bash /home/${USER}/power-on-server.sh > power-on-server.log
 # requires etherwake and wakeonlan (apt-get)
 # installed etherwake and wakeonlan beacuse I had some issues with one or the other between updates, so >
 # run Wake-on-LAN from rpi_cronjob_examples.txt
