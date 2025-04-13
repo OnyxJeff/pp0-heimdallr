@@ -19,5 +19,5 @@ jobs:
 
       - name: Run ShellCheck on scripts/
         run: |
-          echo "Running ShellCheck on all .sh scripts in ./scripts"
+          echo "Checking shell scripts in ./scripts"
           find scripts -name "*.sh" -print -exec shellcheck {} +
