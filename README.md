@@ -11,23 +11,46 @@ It runs:
 
 ---
 
-## ⚡ Wake-on-LAN
+## ⚡ Wake-on-LAN/Uptime Logger
 
-To wake a device (add your MAC addresses into the script):
+To wake a device add your MAC addresses and IP addresses into the script:
 
 ```bash
-bash scripts/wake-on-lan.sh <device-nickname>
+bash scripts/power-on-server.sh
 ```
+This will also pings your critical devices every 45 minutes if you schedule this via cron:
+
+```bash
+# Wake-on-LAN        
+    45 * * * * bash /home/potentpi0/power-on-server.sh >> /home/potentpi0/logs/power-on-server.log
+        # run "power-on-server.sh" every hour at *:45 am/pm
+    30 0 * * 1 /bin/bash -c 'find /home/potentpi0/logs -name "power-on-server.log" -exec sh -c "cp {} /home/potentpi0/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
+        # saves weekly version of "power-on-server.log" on Monday of every week at 00:30 am then deletes the old log
+```
+
+Log output is stored in logs/power-on-server.log and backup_logs/power-on-server.log or can be adapted to report to an API or dashboard.
 
 ---
 
-## 🕒 Uptime Logger
-To ping your critical devices every 5 minutes, schedule this via cron:
+## 🕒 Auto Updater
+
+This script will update, upgrade, and clean up:
 
 ```bash
-bash scripts/uptime-logger.sh
+bash scripts/apt-get-autoupdater.sh
 ```
-Log output is stored in logs/uptime.log or can be adapted to report to an API or dashboard.
+
+To auto update your device, schedule this via cron:
+
+```bash
+# OS-Auto-Updater
+    5 2 * * 0 bash /home/potentpi0/apt-get-autoupdater.sh >> /home/potentpi0/logs/apt-get-autoupdater.log
+        # execute automatic update script and log every sunday at 02:05 am
+    1 0 1 * * /bin/bash -c 'find /home/potentpi0/logs -name "apt-get-autoupdater.log" -exec sh -c "cp {} /home/potentpi0/backup_logs/\$(date +\%Y\%m\%d)-\$(basename {})" \; -exec rm {} \;'
+        # saves monthly version of "apt-get-autoupdater.log" on the 1st of every month at 00:01 am then deletes the old log
+```
+
+Log output is stored in logs/apt-get-autoupdater.log and backup_logs/apt-get-autoupdater.log or can be adapted to report to an API or dashboard.
 
 ---
 
