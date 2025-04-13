@@ -1,0 +1,19 @@
+name: Heimdallr Lint Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  script-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: ShellCheck Scripts
+        uses: ludeeus/action-shellcheck@v2
+        with:
+          ignore_paths: .github
