@@ -6,8 +6,8 @@
 **Heimdallr** stands watch over my homelab from the modest hardware of a Pi Zero.
 
 It runs:
-- A **Wake-on-LAN script** to boot sleeping devices on command.
-- An **uptime logging script** to ping key IPs and log their status to a file or local dashboard.
+- A **Power-on-Server script** to boot sleeping devices and ping key IPs and log their status to a file or local dashboard on command.
+- An **Auto Update script** to keep your OS updated.
 
 ---
 
