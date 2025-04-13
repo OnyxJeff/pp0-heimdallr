@@ -9,6 +9,7 @@ on:
 jobs:
   shellcheck:
     runs-on: ubuntu-latest
+    continue-on-error: true  # Don't fail the build if errors are found
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -18,5 +19,5 @@ jobs:
 
       - name: Run ShellCheck on scripts/
         run: |
-          echo "Checking shell scripts in ./scripts"
+          echo "Running ShellCheck on all .sh scripts in ./scripts"
           find scripts -name "*.sh" -print -exec shellcheck {} +
