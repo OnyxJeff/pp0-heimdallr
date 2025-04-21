@@ -11,6 +11,17 @@ It runs:
 
 ---
 
+## 📁 Repo Structure
+
+```text
+heimdallr/
+├── .github/workflows/    # CI for YAML validation
+├── scripts/              # Wake-on-LAN & Uptime logger scripts
+└── README.md             # You're reading it!
+```
+
+---
+
 ## ⚡ Wake-on-LAN/Uptime Logger
 
 To wake a device add your MAC addresses and IP addresses into the script:
