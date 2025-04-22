@@ -22,7 +22,18 @@ heimdallr/
 
 ---
 
-## ⚡ Wake-on-LAN/Uptime Logger
+## 🚀 Deployment
+
+---
+
+## 🧰 Services
+
+| HassOS              | Home Assistant OS                          |
+| :---                | :---:                                      |
+| Wake-on-LAN         | Script that wakes up devices               |
+| Uptime Logger       | Script that logs uptime of devices         |
+
+### ⚡ Wake-on-LAN/Uptime Logger
 
 To wake a device add your MAC addresses and IP addresses into the script:
 
@@ -41,9 +52,7 @@ This will also pings your critical devices every 45 minutes if you schedule this
 
 Log output is stored in logs/power-on-server.log and backup_logs/power-on-server.log or can be adapted to report to an API or dashboard.
 
----
-
-## 🕒 Auto Updater
+### 🕒 Auto Updater
 
 This script will update, upgrade, and clean up:
 
