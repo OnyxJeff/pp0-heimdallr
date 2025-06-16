@@ -1,7 +1,10 @@
 # Heimdallr
 
-![Build](https://github.com/OnyxJeff/Heimdallr/actions/workflows/build.yml/badge.svg)
-![Maintained](https://img.shields.io/badge/maintained-yes-blue)
+![Build Status](https://github.com/OnyxJeff/pp0-heimdallr/actions/workflows/build.yml/badge.svg)
+![Maintenance](https://img.shields.io/maintenance/yes/2025.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![GitHub release](https://img.shields.io/github/v/release/OnyxJeff/pp0-heimdallr)
+![Issues](https://img.shields.io/github/issues/OnyxJeff/pp0-heimdallr)
 
 **Heimdallr** stands watch over my homelab from the modest hardware of a Pi Zero.
 
